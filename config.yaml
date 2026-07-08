@@ -1,0 +1,83 @@
+# squish-watch configuration
+
+# ntfy.sh topic - pick something unique/hard-to-guess, since anyone who knows
+# the topic name can read your notifications. Install the ntfy app and
+# subscribe to this same topic name.
+ntfy:
+  topic: "squish-watch-corey-8f2k1"   # <-- CHANGE THIS to something unique
+
+# eBay Browse API credentials (developer.ebay.com -> register -> get an App ID / Client ID + Client Secret)
+ebay:
+  client_id: "YOUR_EBAY_CLIENT_ID"
+  client_secret: "YOUR_EBAY_CLIENT_SECRET"
+  marketplace: "EBAY_US"
+
+# Reddit API credentials (developers.reddit.com -> your approved app ->
+# client ID is under the app name, client secret is labeled "secret")
+reddit:
+  client_id: "YOUR_REDDIT_CLIENT_ID"
+  client_secret: "YOUR_REDDIT_CLIENT_SECRET"
+  user_agent: "squish-watch by u/yourusername"
+  subreddits:
+    - "Squishable"
+    - "PlushPals"
+    - "mechmarket"   # low relevance but cheap to include; remove if noisy
+
+# Facebook Marketplace / Groups - PLACEHOLDER
+# No official API. If you want this later, it requires a persisted logged-in
+# session (cookies) via Playwright, and Facebook will periodically invalidate
+# the session, requiring a manual re-login. Left disabled until you have
+# specific group URLs to target.
+facebook:
+  enabled: false
+  groups: []
+  # groups:
+  #   - "https://www.facebook.com/groups/123456789/"
+
+# Target items to watch for. Each item has a display name and a list of
+# search terms to try per source. Keep terms tight to reduce false positives -
+# Squishable naming is inconsistent across resellers.
+items:
+  - name: "Squish Bakeshop Mini Baker Plague Doctor (Spring 2026 Capsule)"
+    search_terms:
+      - "squishable bakeshop baker plague doctor"
+      - "squishable baker plague doctor"
+      - "squish bakeshop plague doctor"
+      - "squishable bakeshop plague doctor"
+      - "squishable baker doctor plague"
+      - "mini squishable baker plague"
+      - "squishable bakery plague doctor"
+      - "squish bakeshop baker"
+      - "squishable plague doctor baker mini"
+      - "squishable bakeshop capsule plague"
+      - "squishable spring 2026 bakeshop plague"
+      - "squish bakeshop 2026 plague doctor"
+      - "squishable bakeshop capsule 2026"
+
+  - name: "Barnes & Noble Mini Holiday Plague Doctor"
+    search_terms:
+      - "squishable barnes noble holiday plague doctor"
+      - "squishable b&n holiday plague doctor"
+      - "squishable bn plague doctor holiday"
+      - "squishable barnes and noble plague doctor"
+      - "squishable holiday plague doctor exclusive"
+      - "squishable bn exclusive plague doctor"
+      - "mini squishable holiday doctor plague"
+      - "squishable christmas plague doctor"
+      - "squishable winter holiday plague doctor"
+
+  - name: "Barnes & Noble Mini Holiday Plague Nurse"
+    search_terms:
+      - "squishable barnes noble holiday plague nurse"
+      - "squishable b&n holiday plague nurse"
+      - "squishable bn plague nurse holiday"
+      - "squishable barnes and noble plague nurse"
+      - "squishable holiday plague nurse exclusive"
+      - "squishable bn exclusive plague nurse"
+      - "mini squishable holiday nurse plague"
+      - "squishable christmas plague nurse"
+      - "squishable winter holiday plague nurse"
+
+# How often (minutes) this is expected to run - informational only,
+# actual scheduling is done via cron. See README.md.
+poll_interval_minutes: 25
